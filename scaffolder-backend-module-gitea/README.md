@@ -1,8 +1,6 @@
 # Exporting Custom Plugins
 
-[Package and publish a custom plugin] for `@backstage/plugin-scaffolder-backend-module-gitea`.
-
-Refer to the [npm plugin docs] and [scaffolder actions docs] for additional details on the plugin.
+[Package and publish a custom plugin] for `@backstage/plugin-scaffolder-backend-module-gitea`, refer to the [npm plugin docs] and [scaffolder actions docs] for additional details on the plugin.
 
 Install dependencies, download code, and export custom plugin:
 ```
@@ -10,7 +8,7 @@ sudo dnf install -y node npm yarn
 sudo npm install -g typescript
 git clone https://github.com/backstage/backstage/
 cd backstage/plugins/scaffolder-backend-module-gitea/
-git checkout v1.48.1   # specify branch for release version of plugin, i.e. 0.2.18
+git checkout v1.49.2   # specify branch for release version of plugin, i.e. 0.2.19
 
 # increase Javascript heap size to perform yarn build
 yarn install
@@ -21,22 +19,22 @@ npx @red-hat-developer-hub/cli@latest plugin export
 
 Create an OCI image with dynamic packages.  The tag corresponds to the version field in `package.json`:
 ```
-npx @red-hat-developer-hub/cli@latest plugin package --tag quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.18
+npx @red-hat-developer-hub/cli@latest plugin package --tag quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.19
 podman login quay.io
-podman push quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.18
+podman push quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.19
 ```
 
-** Don't forget to set the quay.io image to public. **
+**Don't forget to set the quay.io image to public.**
 
 Custom plugins must use image digest to pass the integrity check.  Run the following:
 ```
-skopeo inspect docker://quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.18
+skopeo inspect docker://quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.19
 ```
 
 Using the digest, add this snippet to your values.yaml file:
 ```
 plugins:
-  - package: oci://quay.io/kevchu3/scaffolder-backend-module-gitea@sha256:e6ad69865b439c54d90876058db8284998789aa723c4eb39ba185a1e0f66469f!backstage-plugin-scaffolder-backend-module-gitea
+  - package: oci://quay.io/kevchu3/scaffolder-backend-module-gitea@sha256:fa9099033d3c4611487ff5e1917e22fbac023ae5b675dffe00026c06abf6b3af!backstage-plugin-scaffolder-backend-module-gitea
     disabled: false
 ```
 
