@@ -72,10 +72,12 @@ if len(dev_group) < 1:
         'project_creation_level': "developer"
     })
     main_group.share(group.id, group_access=40)
-    print(f"Group created: {group.web_url}\n", flush=True)
+    print(f"Developers group created, added as maintainer of self-provisioned group: {group.web_url}\n", flush=True)
+
+    group.share(main_group.id, group_access=50)    
+    print(f"Self-provisioned group also added as owner of developers group\n", flush=True)
 else:
     print("Group 'developers' exists.\n", flush=True)
-
 
 #########################################################
 ## Create the User & Assign them to the developers group
