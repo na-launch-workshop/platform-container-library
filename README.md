@@ -4,6 +4,7 @@ This repository hosts the build definitions for the containers required by the w
 
 * [ansible-runner](https://quay.io/repository/na-east-launch/ansible_runner)
 * [automation-portal](https://quay.io/repository/na-east-launch/automation-portal)
+* [backstage-notifications](https://quay.io/repository/na-east-launch/backstage-notifications)
 * [bootstrapper](https://quay.io/repository/na-east-launch/bootstrapper)
 * [devhub-dynamic-dashboards](https://quay.io/repository/na-east-launch/dynamic-dashboard)
 * [minio-cli](https://quay.io/repository/na-east-launch/minio-cli)
