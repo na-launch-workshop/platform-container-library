@@ -7,7 +7,7 @@ import urllib3
 ## For the love of god disable the warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-KEYCLOAK_URL = f"https://keycloak-keycloak.{os.getenv('DOMAIN')}/auth/"
+KEYCLOAK_URL = f"https://keycloak.{os.getenv('DOMAIN')}/"
 KEYCLOAK_REALM = "openshift"
 KEYCLOAK_USER = os.getenv('KEYCLOAK_USERNAME')
 KEYCLOAK_PASSWORD = os.getenv('KEYCLOAK_PASSWORD')
